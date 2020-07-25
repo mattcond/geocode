@@ -1,0 +1,11 @@
+[Unit]
+Description=Gunicorn per service-rest 
+After=network.target
+
+[Service]
+
+WorkingDirectory=/home/matt/app/geocode/
+ExecStart=/opt/jupyterhub/bin/gunicorn --workers 4 --bind 127.0.0.1:5000 wsgi:app
+
+[Install] 
+WantedBy=multi-user.target
